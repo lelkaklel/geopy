@@ -92,7 +92,8 @@ class Nominatim(Geocoder):
             timeout=None,
             addressdetails=False,
             language=False,
-            geometry=None
+            geometry=None,
+            namedetails=False
     ):  # pylint: disable=R0913,W0221
         """
         Geocode a location query.
@@ -167,6 +168,9 @@ class Nominatim(Geocoder):
 
         if addressdetails:
             params['addressdetails'] = 1
+
+        if namedetails:
+            params['namedetails'] = 1
 
         if language:
             params['accept-language'] = language
